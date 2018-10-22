@@ -30,7 +30,12 @@ def _get_pulsar_servers(app):
     for deployment in client.deployments.list():
         launch_data = deployment.launch_task.result.get('pulsar', {})
         # TODO: Remove this if when filtering implemented
-        if launch_data and launch_data.get('api_url'):
+        if (not deployment.archived and
+                launch_data and launch_data.get('api_url') and
+                # Filter only running instances: temp solution as this may not
+                # work if the user closes the browser before health check runs
+                deployment.latest_task.result.get('instance_status', '') ==
+                'running'):
             server_list.append(
                 (launch_data.get('api_url'), launch_data.get('auth_token')))
     return server_list
@@ -44,9 +49,11 @@ def _get_next_pulsar_server(app):
     servers = _get_pulsar_servers(app)
     if current_server_index >= len(servers):
         current_server_index = 0
-    next_server = servers[current_server_index]
-    current_server_index += 1
-    return next_server
+    if servers:
+        next_server = servers[current_server_index]
+        current_server_index += 1
+        return next_server
+    return None, None
 
 
 def remote_pulsar_runner(app):
