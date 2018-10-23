@@ -26,16 +26,13 @@ def _get_pulsar_servers(app):
     """
     client = _get_cloudlaunch_client(app)
     server_list = []
-    # TODO: Filter deployments by app name
-    for deployment in client.deployments.list():
+    # List servers sorted from oldest to newest, so that newly added servers
+    # will be used before round-robin wrap around
+    for deployment in client.deployments.list(
+            application='pulsar-standalone', version='0.1',
+            archived=False, status='SUCCESS', ordering='added'):
         launch_data = deployment.launch_task.result.get('pulsar', {})
-        # TODO: Remove this if when filtering implemented
-        if (not deployment.archived and
-                launch_data and launch_data.get('api_url') and
-                # Filter only running instances: temp solution as this may not
-                # work if the user closes the browser before health check runs
-                deployment.latest_task.result.get('instance_status', '') ==
-                'running'):
+        if launch_data and launch_data.get('api_url'):
             server_list.append(
                 (launch_data.get('api_url'), launch_data.get('auth_token')))
     return server_list
