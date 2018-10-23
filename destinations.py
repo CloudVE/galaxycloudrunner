@@ -1,4 +1,5 @@
 import os
+import cachetools
 
 from galaxy.jobs import JobDestination
 
@@ -17,12 +18,10 @@ def _get_cloudlaunch_client(app):
     return APIClient(cloudlaunch_url, token=cloudlaunch_token)
 
 
+@cachetools.cached(cachetools.TTLCache(maxsize=1, ttl=300))
 def _get_pulsar_servers(app):
     """
     Returns an array of tuples, consisting of the pulsar url and auth token
-
-    TODO: Add a caching implementation so that the API is not repeatedly
-    queried on each job dispatch
     """
     client = _get_cloudlaunch_client(app)
     server_list = []
