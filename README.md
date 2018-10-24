@@ -1,3 +1,10 @@
-# [WIP] Pulsar Bursting in Galaxy
+CloudFling enables bursting of user jobs to remote compute resources for the
+[Galaxy application](https://galaxyproject.org/).
 
-This is a respository to share files and work-in-progress as we set up and test different components leading to a bursting option in Galaxy.
+## Overview
+
+## Installation and Setup
+
+## Usage
+
+## Contributing

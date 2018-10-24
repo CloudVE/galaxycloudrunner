@@ -1,0 +1,4 @@
+dist/
+CloudFling.egg-info/
+build/
+.vscode/
