@@ -27,9 +27,9 @@ def _get_pulsar_servers():
     server_list = []
     # List servers sorted from oldest to newest, so that newly added servers
     # will be used before round-robin wrap around
-    for deployment in client.deployments.list():
-            # application='pulsar-standalone', version='0.1',
-            # archived=False, status='SUCCESS', ordering='added'):
+    for deployment in client.deployments.list(
+            application='pulsar-standalone', version='0.1',
+            archived=False, status='SUCCESS', ordering='added'):
         launch_data = deployment.launch_task.result.get('pulsar', {})
         if launch_data and launch_data.get('api_url'):
             server_list.append(
