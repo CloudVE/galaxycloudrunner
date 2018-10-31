@@ -4,10 +4,10 @@ import re
 
 import setuptools
 
-# Cannot use "from cloudfling import get_version" because that would try to
-# import the six package which may not be installed yet.
+# Cannot use "from galaxycloudrunner import get_version" because that would
+# try to import the six package which may not be installed yet.
 reg = re.compile(r"__version__\s*=\s*(.+)")
-with open(os.path.join("cloudfling", "__init__.py")) as f:
+with open(os.path.join("galaxycloudrunner", "__init__.py")) as f:
     for line in f:
         m = reg.match(line)
         if m:
@@ -18,7 +18,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="CloudFling",
+    name="GalaxyCloudRunner",
     description="A library for supporting cloud bursting in Galaxy.",
     version=version,
     author="Galaxy and GVL projects",
@@ -26,7 +26,7 @@ setuptools.setup(
     license="MIT",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/cloudve/cloudfling",
+    url="https://github.com/cloudve/galaxycloudrunner",
     packages=setuptools.find_packages(),
     install_requires=[
         "cachetools",
