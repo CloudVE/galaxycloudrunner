@@ -1,4 +1,5 @@
 dist/
-CloudFling.egg-info/
+GalaxyCloudRunner.egg-info/
 build/
 .vscode/
+*.pyc

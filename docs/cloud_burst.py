@@ -1,10 +1,10 @@
-from cloudfling.server import get_next_server
+from galaxycloudrunner.server import get_next_server
 
 from galaxy.jobs import JobDestination
 from galaxy.jobs.mapper import JobNotReadyException
 
 
-def cloudfling_runner(app):
+def gcr_runner(app):
     next_server = get_next_server()
     if next_server.get('url'):
         return JobDestination(

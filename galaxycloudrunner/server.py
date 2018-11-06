@@ -27,6 +27,7 @@ def _get_pulsar_servers():
     server_list = []
     # List servers sorted from oldest to newest, so that newly added servers
     # will be used before round-robin wrap around
+    print("Getting a new list of deploys")
     for deployment in client.deployments.list(
             application='pulsar-standalone', version='0.1',
             archived=False, status='SUCCESS', ordering='added'):
@@ -51,7 +52,7 @@ def get_next_server():
     """
     server = {'runner': 'pulsar',
               'url': None,
-              'token': None}
+              'auth_token': None}
     global current_server_index
     servers = _get_pulsar_servers()
     if current_server_index >= len(servers):

@@ -1,5 +1,5 @@
-CloudFling enables bursting of user jobs to remote compute resources for the
-[Galaxy application](https://galaxyproject.org/).
+GalaxyCloudRunner enables bursting of user jobs to remote compute resources for
+the [Galaxy application](https://galaxyproject.org/).
 
 ## Overview
 
