@@ -1,5 +1,6 @@
 GalaxyCloudRunner enables bursting of user jobs to remote compute resources for
-the [Galaxy application](https://galaxyproject.org/).
+the [Galaxy application](https://galaxyproject.org/). It provides a dynamic job
+runner that can be plugged into Galaxy.
 
 ## Overview
 

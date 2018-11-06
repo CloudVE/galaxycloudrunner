@@ -4,8 +4,8 @@ import re
 
 import setuptools
 
-# Cannot use "from galaxycloudrunner import get_version" because that would try
-# to import the six package which may not be installed yet.
+# Cannot use "from galaxycloudrunner import get_version" because that would
+# try to import the six package which may not be installed yet.
 reg = re.compile(r"__version__\s*=\s*(.+)")
 with open(os.path.join("galaxycloudrunner", "__init__.py")) as f:
     for line in f:

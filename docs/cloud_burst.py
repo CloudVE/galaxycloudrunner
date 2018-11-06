@@ -4,7 +4,7 @@ from galaxy.jobs import JobDestination
 from galaxy.jobs.mapper import JobNotReadyException
 
 
-def gcr_runner(app):
+def galaxycloudrunner(app):
     next_server = get_next_server()
     if next_server.get('url'):
         return JobDestination(
