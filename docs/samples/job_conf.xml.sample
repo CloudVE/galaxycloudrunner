@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<job_conf>
+    <plugins>
+        <plugin id="local" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner" workers="4"/>
+        <plugin id="pulsar" type="runner" load="galaxy.jobs.runners.pulsar:PulsarRESTJobRunner"/>
+    </plugins>
+    <destinations default="galaxycloudrunner">
+        <destination id="local" runner="local"/>
+        <destination id="galaxycloudrunner" runner="dynamic">
+            <param id="type">python</param>
+            <param id="function">cloudlaunch_pulsar_burst</param>
+            <param id="rules_module">galaxycloudrunner.rules</param>
+            <param id="cloudlaunch_api_endpoint">https://launch.usegalaxy.org/cloudlaunch/api/v1</param>
+            <!-- Obtain your CloudLaunch token by visiting: https://launch.usegalaxy.org/profile -->
+            <param id="cloudlaunch_api_token">37c46e81bcbea717bc4cf76fee10932d2a6b2389</param>
+            <!-- Destination to fallback to if no nodes are available -->
+            <param id="fallback_destination">local</param>
+        </destination>
+
+    </destinations>
+    <tools>
+        <tool id="upload1" destination="local"/>
+    </tools>
+</job_conf>
