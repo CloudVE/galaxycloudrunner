@@ -16,7 +16,6 @@
             <!-- Destination to fallback to if no nodes are available -->
             <param id="fallback_destination">local</param>
         </destination>
-
     </destinations>
     <tools>
         <tool id="upload1" destination="local"/>

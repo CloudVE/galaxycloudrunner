@@ -11,18 +11,32 @@ the `Galaxy application`_. It provides several dynamic
 job rules that can be plugged into Galaxy, enabling Galaxy to submit jobs to
 remote cloud nodes.
 
-Sample job configuration file
-------------------------------
-.. literalinclude:: samples/job_conf.xml.sample
-   :language: xml
-   :linenos:
+How it works
+------------
+The GalaxyCloudRunner provides a library of rules that can be plugged into Galaxy
+through ``job_conf.xml``. Once configured, you can get your jobs to be automatically
+routed to remote Pulsar nodes running on the cloud. The GalaxyCloudRunner will discover
+what Pulsar nodes are available by querying the `CloudLaunch`_ API.
+Adding a new node is a simple matter of visiting the `CloudLaunch`_ site and launching
+a new Pulsar node on your desired cloud.
+
+
+Getting Started
+---------------
+Getting started with the GalaxyCloudRunner is a simple process.
+
+1. First, install galaxycloudrunner into your Galaxy's virtual environment.
+2. Add a job rule to Galaxy which will determine the Pulsar node to route to.
+3. Configure your job_conf.xml to use this rule.
+4. Launch as many Pulsar nodes as you like through `CloudLaunch`_.
+5. Submit your jobs as usual.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
-
+   topics/overview.rst
 
 Indices and tables
 ==================
@@ -32,3 +46,4 @@ Indices and tables
 * :ref:`search`
 
 .. _Galaxy application: https://galaxyproject.org/
+.. _CloudLaunch: https://launch.usegalaxy.org/
