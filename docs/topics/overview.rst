@@ -1,6 +1,25 @@
+Obtaining a CloudLaunch API key
+-------------------------------
+1. Visit the CloudLaunch site: `https://launch.usegalaxy.org/`_
+2. Select Login on the top menu bar and sign in through a social network
+   provider.
+3. Once logged in, select the 'My Profile' option from the menu bar as shown.
 
-Add new pulsar nodes
---------------------
+.. image:: ../images/cloudlaunch_my_profile_select.png
+
+4. Get a new API token for CloudLaunch by expanding the collapsed panel.
+   You can give it any name you like (we have given ``galaxycloudrunner``) and
+   click the `Add new Token` button.
+
+.. image:: ../images/cloudlaunch_add_api_key.png
+
+5. Copy the token value and paste it into your job_conf.xml
+
+.. image:: ../images/cloudlaunch_view_api_key.png
+
+
+Adding new Pulsar nodes
+-----------------------
 
 1. To launch a new Pulsar node, go to `https://launch.usegalaxy.org/`_
 2. Select the ``Pulsar Standalone`` appliance.
