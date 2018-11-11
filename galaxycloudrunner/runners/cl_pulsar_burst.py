@@ -64,7 +64,7 @@ def get_next_server(cloudlaunch_api_endpoint, cloudlaunch_api_token):
 
 def get_destination(app, cloudlaunch_api_endpoint=None,
                     cloudlaunch_api_token=None,
-                    fallback_destination=None):
+                    fallback_destination_id=None):
     """
     Returns an available Pulsar JobDestination by querying
     cloudlaunch. If no Pulsar server is available, returns
@@ -78,7 +78,7 @@ def get_destination(app, cloudlaunch_api_endpoint=None,
         return JobDestination(runner="pulsar",
                               params={"url": url,
                                       "private_token": token})
-    elif fallback_destination:
-        return fallback_destination
+    elif fallback_destination_id:
+        return fallback_destination_id
     else:
         raise JobNotReadyException  # This will attempt to reschedule the job
