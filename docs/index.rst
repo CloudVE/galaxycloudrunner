@@ -7,7 +7,7 @@ Welcome to GalaxyCloudRunner's documentation!
 =============================================
 
 GalaxyCloudRunner enables bursting of user jobs to remote compute resources for
-the [Galaxy application](https://galaxyproject.org/). It provides several dynamic
+the `Galaxy application`_. It provides several dynamic
 job rules that can be plugged into Galaxy, enabling Galaxy to submit jobs to
 remote cloud nodes.
 
@@ -30,3 +30,5 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. _Galaxy application: https://galaxyproject.org/
