@@ -7,8 +7,10 @@ Configuring Galaxy
     source .venv/bin/activate
     pip install galaxycloudrunner
 
-2. Add a GalaxyCloudRunner job rule to your Galaxy configuration by pasting
-   the following file contents into your Galaxy job rules folder in:
+2. If you have Galaxy v19.01 or higher, you can skip this step. For prior
+   versions, you will need to add a GalaxyCloudRunner
+   job rule to your Galaxy configuration by pasting the following file contents
+   into your Galaxy job rules folder in:
    `<galaxy_home>/lib/galaxy/jobs/rules/`.
 
    Create a file named galaxycloudrunner.py and paste the following contents
@@ -19,16 +21,18 @@ Configuring Galaxy
    :linenos:
 
 3. Edit your job_conf.xml in the `<galaxy_home>/config` folder and add the
-   highlighted section to it:
+   highlighted sections to it.
+
+   You will need to add your own ``cloudlaunch_api_token`` to the file.
+   Instructions on how to obtain your CloudLaunch API key is given below.
+   If you have a Galaxy version prior to 19.01, the line
+   `<param id="rules_module">galaxycloudrunner.rules</param>` passed to your
+   destination will not work. This is the reason that we need to perform step 2.
 
 .. literalinclude:: ../samples/job_conf.xml.basic
    :language: xml
    :linenos:
    :emphasize-lines: 7,9-18
-
-   You will need to add your own ``cloudlaunch_api_token`` to the file.
-   Instructions on how to obtain your CloudLaunch API key is given below.
-   For more advanced configuration instructions, see below.
 
 4. Launch as many Pulsar nodes as you need through `CloudLaunch`_.
    Instructions on how to launch new Pulsar nodes are below.
@@ -154,3 +158,4 @@ less than 1GB, they are routed to the GalaxyCloudRunner. If not, they are
 routed to a local queue.
 
 .. _https://launch.usegalaxy.org/: https://launch.usegalaxy.org/
+.. _CloudLaunch: https://launch.usegalaxy.org/
