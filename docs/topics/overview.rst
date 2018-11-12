@@ -120,18 +120,21 @@ nodes only if the local queue is full. To support this scenario, we recommend
 a configuration like the following.
 
 
-.. literalinclude:: ../samples/job_conf.xml.burst_if_needed
+.. literalinclude:: ../samples/job_conf.xml.burst_if_queued
    :language: xml
    :linenos:
    :emphasize-lines: 8,10-17
 
 Note the emphasized lines. In this example, we route to the built-in rule,
-``should_burst`` first, which determines whether or not the cloud bursting
+``burst`` first, which determines whether or not the cloud bursting
 should occur. It examines how many jobs in the
 ``from_destinations`` are in the given state (``queued`` in this case),
 and if they are above ``num_jobs``, routes to the
-``galaxy_cloud_runner`` destination. This provides a simple method to scale
-to Pulsar nodes only if the local queue has a backlog of jobs. You may need
-to experiment with these values to find ones that work best in your scenario.
+``galaxy_cloud_runner`` destination. If bursting should not occur, it routes
+the first destination in the ``from_destinations`` list. This provides a simple
+method to scale to Pulsar nodes only if a desired queue has a backlog of jobs.
+You may need to experiment with these values to find ones that work best
+for your requirements.
+
 
 .. _https://launch.usegalaxy.org/: https://launch.usegalaxy.org/

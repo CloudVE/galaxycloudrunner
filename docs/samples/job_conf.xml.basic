@@ -12,7 +12,7 @@
             <param id="rules_module">galaxycloudrunner.rules</param>
             <param id="cloudlaunch_api_endpoint">https://launch.usegalaxy.org/cloudlaunch/api/v1</param>
             <!-- Obtain your CloudLaunch token by visiting: https://launch.usegalaxy.org/profile -->
-            <param id="cloudlaunch_api_token">37c46e81bcbea717bc4cf76fee10932d2a6b2389</param>
+            <param id="cloudlaunch_api_token">37c46c89bcbea797bc7cd76fee10932d2c6a2389</param>
             <!-- Destination to fallback to if no nodes are available -->
             <param id="fallback_destination">local</param>
         </destination>
