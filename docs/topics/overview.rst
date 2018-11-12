@@ -47,7 +47,7 @@ Obtaining a CloudLaunch API key
 
 4. Get a new API token for CloudLaunch by expanding the collapsed panel.
    You can give it any name you like (we have given ``galaxycloudrunner``) and
-   click the `Add new Token` button.
+   click the `Add New Token` button.
 
 .. image:: ../images/cloudlaunch_add_api_key.png
 
@@ -123,7 +123,7 @@ a configuration like the following.
 .. literalinclude:: ../samples/job_conf.xml.burst_if_queued
    :language: xml
    :linenos:
-   :emphasize-lines: 8,10-17
+   :emphasize-lines: 8,10-16
 
 Note the emphasized lines. In this example, we route to the built-in rule,
 ``burst`` first, which determines whether or not the cloud bursting
@@ -139,8 +139,8 @@ for your requirements.
 Advanced bursting
 -----------------
 
-In this final example, we show how a complex chain of rules, can be used to
-have fine grained control over the job routing process.
+In this final example, we show how a complex chain of rules can be used to
+exert fine-grained control over the job routing process.
 
 .. literalinclude:: ../samples/job_conf.xml.burst_if_size
    :language: xml
@@ -149,7 +149,7 @@ have fine grained control over the job routing process.
 
 Jobs are first routed to the built-in ``burst`` rule, which determines whether the
 bursting should occur. If it should, it is then routed to the ``burst_if_size``
-destination, which will check the total size of the inpute files. If they are
+destination, which will check the total size of the input files. If they are
 less than 1GB, they are routed to the GalaxyCloudRunner. If not, they are
 routed to a local queue.
 

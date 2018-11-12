@@ -1,38 +1,42 @@
+[![Documentation Status](https://readthedocs.org/projects/galaxycloudrunner/badge/?version=latest)](http://galaxycloudrunner.readthedocs.org/en/latest/?badge=latest)
+
 GalaxyCloudRunner enables bursting of user jobs to remote compute resources for
 the [Galaxy application](https://galaxyproject.org/). It provides a dynamic job
 runner that can be plugged into Galaxy.
 
 ## Overview
 
-## Installation and Setup
-Clone and install the repository to your local machine. As always, use of
-virutalenv is encouraged.
-```
-git clone https://github.com/CloudVE/galaxycloudrunner.git
-cd galaxycloudrunner
-python setup.py install
-```
+GalaxyCloudRunner enables bursting of user jobs to remote compute
+resources for the [Galaxy application](https://galaxyproject.org/).
+It provides several dynamic job rules that can be plugged into Galaxy,
+enabling Galaxy to submit jobs to remote cloud nodes.
 
-For the time being, it is also necessary to install an updated version of the
-CloudLaunch-CLI library from its repository:
-```
-pip install -U git+https://github.com/CloudVE/cloudlaunch-cli.git
-```
+## How it works
 
-## Usage
-Take a look at `docs/cloud_burst.py` file for an example of a Galaxy dynamic
-job runner and `docs/job_conf.xml` for an example of Galaxy job config on how
-to enable GalaxyCloudRunner in your Galaxy.
+The GalaxyCloudRunner provides a library of rules that can be plugged
+into Galaxy through `job_conf.xml`. Once configured, you can get your
+jobs to be automatically routed to remote Pulsar nodes running on the
+cloud. The GalaxyCloudRunner will discover what Pulsar nodes are
+available by querying the [CloudLaunch](https://launch.usegalaxy.org/) API.
+Adding a new node is a simple matter of visiting the
+[CloudLaunch](https://launch.usegalaxy.org/) site and launching a new
+Pulsar node on your desired cloud.
 
-If wanting to test the library interactively, try the following. You can obtain
-your CloudLaunch API key from the credentials page on the CloudLaunch server.
-```
-$ export CLOUDLAUNCH_API_ENDPOINT="https://launch.usegalaxy.org/cloudlaunch/api/v1"
-$ export CLOUDLAUNCH_API_TOKEN="hre9ufhaijs9cjasdoicmsnad"
-$ python
->>> from galaxycloudrunner.server import get_next_server
->>> get_next_server()
-```
+## Getting Started
+
+Getting started with the GalaxyCloudRunner is a simple process.
+
+1.  First, install galaxycloudrunner into your Galaxy's virtual
+    environment.
+2.  Add a job rule to Galaxy which will determine the Pulsar node to
+    route to.
+3.  Configure your job\_conf.xml to use this rule.
+4.  Launch as many Pulsar nodes as you need through
+    [CloudLaunch](https://launch.usegalaxy.org/).
+5.  Submit your jobs as usual.
+
+For detailed instructions, see:
+[https://galaxycloudrunner.readthedocs.io/](https://galaxycloudrunner.readthedocs.io/)
 
 ## Contributing
 Community contributions for any part of the project are welcome. If you have
