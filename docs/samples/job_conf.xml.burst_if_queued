@@ -21,6 +21,8 @@
             <param id="cloudlaunch_api_endpoint">https://launch.usegalaxy.org/cloudlaunch/api/v1</param>
             <!-- Obtain your CloudLaunch token by visiting: https://launch.usegalaxy.org/profile -->
             <param id="cloudlaunch_api_token">37c46c89bcbea797bc7cd76fee10932d2c6a2389</param>
+            <!-- id of the pulsar runner plugin. Defaults to "pulsar" -->
+            <param id="pulsar_runner_id">pulsar</param>
             <!-- Destination to fallback to if no nodes are available -->
             <param id="fallback_destination_id">local</param>
         </destination>

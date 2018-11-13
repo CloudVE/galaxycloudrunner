@@ -6,6 +6,9 @@ from cloudlaunch_cli.api.client import APIClient
 from galaxy.jobs import JobDestination
 from galaxy.jobs.mapper import JobNotReadyException
 
+
+CACHE_TIMEOUT = os.environ.get('CLOUDLAUNCH_QUERY_CACHE_PERIOD', 300)
+
 # Global variable for tracking round-robin index
 current_server_index = 0
 
@@ -20,7 +23,7 @@ def _get_cloudlaunch_client(cloudlaunch_api_endpoint, cloudlaunch_api_token):
     return APIClient(cloudlaunch_url, token=cloudlaunch_token)
 
 
-@cachetools.cached(cachetools.TTLCache(maxsize=1, ttl=300))
+@cachetools.cached(cachetools.TTLCache(maxsize=1, ttl=CACHE_TIMEOUT))
 def _get_pulsar_servers(cloudlaunch_client):
     """
     Return an array of tuples, consisting of the Pulsar url and auth token.
@@ -64,6 +67,7 @@ def get_next_server(cloudlaunch_api_endpoint, cloudlaunch_api_token):
 
 def get_destination(app, cloudlaunch_api_endpoint=None,
                     cloudlaunch_api_token=None,
+                    pulsar_runner_id="pulsar",
                     fallback_destination_id=None):
     """
     Returns an available Pulsar JobDestination by querying
@@ -75,7 +79,7 @@ def get_destination(app, cloudlaunch_api_endpoint=None,
     url, token = get_next_server(cloudlaunch_api_endpoint,
                                  cloudlaunch_api_token)
     if url:
-        return JobDestination(runner="pulsar",
+        return JobDestination(runner=pulsar_runner_id,
                               params={"url": url,
                                       "private_token": token})
     elif fallback_destination_id:
