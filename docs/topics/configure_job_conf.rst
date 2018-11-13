@@ -1,4 +1,4 @@
-Job configuriation for Galaxy v19.01 or higher
+Job configuration for Galaxy v19.01 or higher
 ==============================================
 
 Simple configuration
@@ -75,7 +75,7 @@ less than 1GB, they are routed to the GalaxyCloudRunner. If not, they are
 routed to a local queue.
 
 
-Job configuriation for Galaxy versions lower than 19.01
+Job configuration for Galaxy versions lower than 19.01
 ========================================================
 
 Simple configuration
@@ -149,7 +149,7 @@ In this final example, we expand this compound rule to also filter jobs by size.
    :emphasize-lines: 24-26
 
 Enable the ``dest_if_size_enabled`` flag as highlighted to filter by size.
-This will check that the job is routed to Pulsar only if the total size of
+This will make sure that the job is routed to Pulsar only if the total size of
 the input files are less than 1GB. If not, they are routed to
 ``dest_if_size_fallback_destination_id``, which in this case, is a local queue.
 

@@ -18,7 +18,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="GalaxyCloudRunner",
+    name="galaxycloudrunner",
     description="A library for supporting cloud bursting in Galaxy.",
     version=version,
     author="Galaxy and GVL projects",

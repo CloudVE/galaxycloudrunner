@@ -3,3 +3,4 @@ GalaxyCloudRunner.egg-info/
 build/
 .vscode/
 *.pyc
+activate.sh
