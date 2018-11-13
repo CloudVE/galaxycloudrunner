@@ -33,10 +33,14 @@ Getting started with the GalaxyCloudRunner is a simple process.
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
-   topics/overview.rst
+   topics/configure_galaxy.rst
+   topics/cloudlaunch_api_key.rst
+   topics/add_pulsar_node.rst
+   topics/configure_job_conf.rst
+   topics/additional_notes.rst
 
 Indices and tables
 ==================
