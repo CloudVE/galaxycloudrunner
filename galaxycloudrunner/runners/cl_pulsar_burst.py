@@ -23,7 +23,9 @@ def _get_cloudlaunch_client(cloudlaunch_api_endpoint, cloudlaunch_api_token):
     return APIClient(cloudlaunch_url, token=cloudlaunch_token)
 
 
-@cachetools.cached(cachetools.TTLCache(maxsize=1, ttl=CACHE_TIMEOUT))
+# Key function hashes args to a constant value since we allow only one item
+@cachetools.cached(cachetools.TTLCache(maxsize=1, ttl=CACHE_TIMEOUT),
+                   key=lambda *_, **__: 'hash_to_constant')
 def _get_pulsar_servers(cloudlaunch_client):
     """
     Return an array of tuples, consisting of the Pulsar url and auth token.
