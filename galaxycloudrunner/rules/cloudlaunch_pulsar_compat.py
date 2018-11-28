@@ -43,7 +43,8 @@ def cloudlaunch_pulsar_burst_compat(
         # Not a destination we know, just return
         return destination
 
-    return get_destination(app, cloudlaunch_api_endpoint,
+    return get_destination(app, None,
+                           cloudlaunch_api_endpoint,
                            cloudlaunch_api_token,
                            pulsar_runner_id,
                            pulsar_fallback_destination_id)

@@ -67,7 +67,8 @@ def get_next_server(cloudlaunch_api_endpoint, cloudlaunch_api_token):
     return None, None
 
 
-def get_destination(app, cloudlaunch_api_endpoint=None,
+def get_destination(app, referrer=None,
+                    cloudlaunch_api_endpoint=None,
                     cloudlaunch_api_token=None,
                     pulsar_runner_id="pulsar",
                     fallback_destination_id=None):
@@ -81,9 +82,13 @@ def get_destination(app, cloudlaunch_api_endpoint=None,
     url, token = get_next_server(cloudlaunch_api_endpoint,
                                  cloudlaunch_api_token)
     if url:
+        if referrer:
+            resubmit_dest = referrer.get('resubmit')
         return JobDestination(runner=pulsar_runner_id,
                               params={"url": url,
-                                      "private_token": token})
+                                      "private_token": token
+                                      },
+                              resubmit=resubmit_dest)
     elif fallback_destination_id:
         return fallback_destination_id
     else:
