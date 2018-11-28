@@ -10,7 +10,7 @@ started.
 .. literalinclude:: ../samples/job_conf.xml.basic
    :language: xml
    :linenos:
-   :emphasize-lines: 7,9-20
+   :emphasize-lines: 7,9-22
 
 In this simple configuration, all jobs are routed to GalaxyCloudRunner by 
 default. This works as follows:
@@ -24,8 +24,10 @@ default. This works as follows:
    the GalaxyCloudRunner. This has implications for node addition and in
    particular removal. When adding a node, there could be a delay of a few
    minutes before the node is picked up. If a Pulsar node is removed, your jobs
-   may be routed to a dead node for the duration of the caching period. See
-   :ref:`additional-configuration` on how to change this cache period.
+   may be routed to a dead node for the duration of the caching period.
+   Therefore, we recommend attempting a job resubmission through the resubmit
+   tag as shown in the example. See :ref:`additional-configuration` on how to
+   change this cache period.
 4. If no node is available, it will return the ``fallback_destination_id``, if
    specified, in which case the job will be routed there. If no
    ``fallback_destination_id`` is specified, the job will be re-queued till a node
@@ -101,7 +103,10 @@ default. This works as follows:
    the GalaxyCloudRunner. This has implications for node addition and in
    particular removal. When adding a node, there could be a delay of a few
    minutes before the node is picked up. If a Pulsar node is removed, your jobs
-   may be routed to a dead node for the duration of the caching period. See
+   may be routed to a dead node for the duration of the caching period.
+   Therefore, we recommend a job resubmission through a resubmit tag. However,
+   Galaxy versions prior to 19.01 do not support resubmissions for Pulsar, and
+   you may need to change the cache period to zero to handle this scenario. See
    :ref:`additional-configuration` on how to change this cache period.
 4. If no node is available, it will return the ``fallback_destination_id``, if
    specified, in which case the job will be routed there. If no

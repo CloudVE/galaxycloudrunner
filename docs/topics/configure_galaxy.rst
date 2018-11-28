@@ -20,7 +20,7 @@ Configuring Galaxy v19.01 or higher
 .. literalinclude:: ../samples/job_conf.xml.basic
    :language: xml
    :linenos:
-   :emphasize-lines: 7,9-20
+   :emphasize-lines: 7,9-22
 
 3. Launch as many Pulsar nodes as you need through `CloudLaunch`_. The job rule
    will periodically query CloudLaunch, discover these new nodes, and route jobs
