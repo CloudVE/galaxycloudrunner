@@ -16,7 +16,7 @@
             <!-- id of the PulsarRESTJobRunner plugin. Defaults to "pulsar" -->
             <param id="pulsar_runner_id">pulsar</param>
             <!-- Destination to fallback to if no nodes are available -->
-            <param id="fallback_destination">local</param>
+            <param id="fallback_destination_id">local</param>
             <!-- Pick next available server and resubmit if an unknown error occurs -->
             <resubmit condition="unknown_error and attempt &lt;= 3" destination="galaxycloudrunner" />
         </destination>

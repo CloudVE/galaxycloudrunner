@@ -29,8 +29,8 @@ setuptools.setup(
     url="https://github.com/cloudve/galaxycloudrunner",
     packages=setuptools.find_packages(),
     install_requires=[
-        "cachetools",
-        "cloudlaunch-cli"
+        "cachetools==3.0.0",
+        "cloudlaunch-cli==0.2.1"
     ],
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
