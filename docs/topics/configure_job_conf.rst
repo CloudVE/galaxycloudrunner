@@ -12,14 +12,14 @@ started.
    :linenos:
    :emphasize-lines: 7,9-22
 
-In this simple configuration, all jobs are routed to GalaxyCloudRunner by 
+In this simple configuration, all jobs are routed to GalaxyCloudRunner by
 default. This works as follows:
 
 1. If a Pulsar node is available, it will return that node.
 2. If multiple Pulsar nodes are available, they will be returned in a
    round-robin loop.
 3. You can add or remove Pulsar nodes at any time. However, there's a caching
-   period (currently 5 minutes) to avoid repeatedly querying the server, that
+   period (currently 5 minutes) to avoid repeatedly querying the server, which
    will result in a short period of time before the change is detected by
    the GalaxyCloudRunner. This has implications for node addition and in
    particular removal. When adding a node, there could be a delay of a few
@@ -49,12 +49,13 @@ a configuration like the following.
    :emphasize-lines: 8,10-16
 
 Note the emphasized lines. In this example, we route to the built-in rule
-``burst`` first, which determines whether or not the cloud bursting
+``burst_if_queued`` first, which determines whether or not the cloud bursting
 should occur. It examines how many jobs in the
-``from_destinations`` are in the given state (``queued`` in this case),
-and if they are above ``num_jobs``, routes to the
-``galaxy_cloud_runner`` destination. If bursting should not occur, it routes
-to the first destination in the ``from_destinations`` list. This provides a
+``from_destination_ids`` are in the given state (``queued`` in this case),
+and if there are above ``num_jobs``, routes to the
+to the ``to_destination_id`` destination (``galaxycloudrunner`` in this case).
+If bursting should not occur, it routes
+to the first destination in the ``from_destination_ids`` list. This provides a
 simple method to scale to Pulsar nodes only if a desired queue has a backlog
 of jobs. You may need to experiment with these values to find ones that work
 best for your requirements.
@@ -70,11 +71,11 @@ exert fine-grained control over the job routing process.
    :linenos:
    :emphasize-lines: 17-24
 
-Jobs are first routed to the built-in ``burst`` rule, which determines whether the
-bursting should occur. If it should, it is then routed to the ``burst_if_size``
-destination, which will check the total size of the input files. If they are
-less than 1GB, they are routed to the GalaxyCloudRunner. If not, they are
-routed to a local queue.
+Jobs are first routed to the built-in ``burst_if_queued`` rule, which determines
+whether the bursting should occur. If it should, it is then routed to the
+``burst_if_size`` destination, which will check the total size of the input
+files. If they are less than 1GB, they are routed to the ``galaxycloudrRunner``
+destination. If not, they are routed to a local queue.
 
 
 Job configuration for Galaxy versions lower than 19.01

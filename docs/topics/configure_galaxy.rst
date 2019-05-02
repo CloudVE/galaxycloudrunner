@@ -11,11 +11,11 @@ Configuring Galaxy v19.01 or higher
     source .venv/bin/activate
     pip install galaxycloudrunner
 
-2. Edit your job_conf.xml in the `<galaxy_home>/config` folder and add the
+2. Edit your `job_conf.xml` in the `<galaxy_home>/config` folder and add the
    highlighted sections to it.
 
-   You will need to add your own ``cloudlaunch_api_token`` to the file.
-   Instructions on how to obtain your CloudLaunch API key are given below.
+   You will need to add your own value for the ``cloudlaunch_api_token`` to the
+   file. Instructions on how to obtain your CloudLaunch API key are given below.
 
 .. literalinclude:: ../samples/job_conf.xml.basic
    :language: xml
@@ -26,7 +26,6 @@ Configuring Galaxy v19.01 or higher
    will periodically query CloudLaunch, discover these new nodes, and route jobs
    to them.
    Instructions on how to launch new Pulsar nodes are below.
-
 
 4. Submit your jobs as usual.
 

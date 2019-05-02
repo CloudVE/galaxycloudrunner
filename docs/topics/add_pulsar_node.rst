@@ -10,8 +10,8 @@ Adding new Pulsar nodes
 4. Once logged in, fill in the following fields:
 
    a. The target cloud you want to launch in
-   b. Your credentials for the cloud.
-   c. Click the 'Test and use these Credentials button' to validate them.
+   b. Provide or choose your credentials for the selected cloud
+   c. Click the 'Test and use these Credentials button' to validate them
    d. Click next
 
 .. image:: ../images/pulsar_select_target_cloud.png

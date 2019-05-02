@@ -25,11 +25,11 @@ Getting Started
 ---------------
 Getting started with the GalaxyCloudRunner is a simple process.
 
-1. First, install galaxycloudrunner into your Galaxy's virtual environment.
-2. Add a job rule to Galaxy which will determine the Pulsar node to route to.
-3. Configure your job_conf.xml to use this rule.
-4. Launch as many Pulsar nodes as you need through `CloudLaunch`_.
-5. Submit your jobs as usual.
+1. First, install ``galaxycloudrunner`` library into your Galaxy's virtual environment
+2. Add a job rule to Galaxy which will determine the Pulsar node to route to
+3. Configure Galaxy's ``job_conf.xml`` file to use this rule
+4. Launch as many Pulsar nodes as you need through `CloudLaunch`_
+5. Submit jobs as usual
 
 
 .. toctree::
