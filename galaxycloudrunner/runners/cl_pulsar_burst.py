@@ -7,7 +7,7 @@ from galaxy.jobs import JobDestination
 from galaxy.jobs.mapper import JobNotReadyException
 
 
-CACHE_TIMEOUT = os.environ.get('CLOUDLAUNCH_QUERY_CACHE_PERIOD', 300)
+CACHE_TIMEOUT = int(os.environ.get('CLOUDLAUNCH_QUERY_CACHE_PERIOD', 300))
 
 # Global variable for tracking round-robin index
 current_server_index = 0
