@@ -71,6 +71,7 @@ def get_destination(app, referrer=None,
                     cloudlaunch_api_endpoint=None,
                     cloudlaunch_api_token=None,
                     pulsar_runner_id="pulsar",
+                    pulsar_file_action_config=None,
                     fallback_destination_id=None):
     """
     Returns an available Pulsar JobDestination by querying
@@ -84,11 +85,13 @@ def get_destination(app, referrer=None,
     if url:
         if referrer:
             resubmit_dest = referrer.get('resubmit')
-        return JobDestination(runner=pulsar_runner_id,
-                              params={"url": url,
-                                      "private_token": token
-                                      },
-                              resubmit=resubmit_dest)
+        return JobDestination(
+            runner=pulsar_runner_id,
+            params={"url": url,
+                    "private_token": token,
+                    "file_action_config": pulsar_file_action_config,
+            },
+            resubmit=resubmit_dest)
     elif fallback_destination_id:
         return fallback_destination_id
     else:

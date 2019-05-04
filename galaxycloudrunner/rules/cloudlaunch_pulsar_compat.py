@@ -14,6 +14,7 @@ def cloudlaunch_pulsar_burst_compat(
         app, rule_helper, job,
         cloudlaunch_api_endpoint=None, cloudlaunch_api_token=None,
         pulsar_runner_id=None,
+        pulsar_file_action_config=None,
         pulsar_fallback_destination_id=None,
         burst_enabled=None,
         burst_from_destination_ids=None,
@@ -47,4 +48,5 @@ def cloudlaunch_pulsar_burst_compat(
                            cloudlaunch_api_endpoint,
                            cloudlaunch_api_token,
                            pulsar_runner_id,
+                           pulsar_file_action_config,
                            pulsar_fallback_destination_id)

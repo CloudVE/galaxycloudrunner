@@ -77,3 +77,19 @@ Configuring Galaxy versions lower than 19.01
 5. Submit your jobs as usual.
 
 .. _CloudLaunch: https://launch.usegalaxy.org/
+
+Additional configuration options
+--------------------------------
+
+If you would like to control data transfer configurations for Pulsar, an
+additional option can be specified in the ``job_conf`` destination. The details
+about the available configuration options is available as part of the
+`Pulsar documentation`_.
+
+.. code-block:: xml
+
+    <!-- Path for the Pulsar destination config file for path rewrites. -->
+    <param id="pulsar_file_action_config">config/pulsar_actions.yml</param>
+
+
+.. _Pulsar documentation: https://pulsar.readthedocs.io/en/latest/galaxy_conf.html#data-staging
