@@ -17,6 +17,11 @@ with open(os.path.join("galaxycloudrunner", "__init__.py")) as f:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+REQS_FULL = [
+    "cachetools==3.0.0",
+    "cloudlaunch-cli==0.2.1"
+]
+
 setuptools.setup(
     name="galaxycloudrunner",
     description="A library for supporting cloud bursting in Galaxy.",
@@ -28,10 +33,10 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/cloudve/galaxycloudrunner",
     packages=setuptools.find_packages(),
-    install_requires=[
-        "cachetools==3.0.0",
-        "cloudlaunch-cli==0.2.1"
-    ],
+    install_requires=REQS_FULL,
+    extras_require={
+        'dev': (['sphinx', 'sphinx_rtd_theme'] + REQS_FULL)
+    },
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Programming Language :: Python :: 3",

@@ -27,16 +27,35 @@ Pulsar node on your desired cloud.
 Getting started with the GalaxyCloudRunner is a simple process.
 
 1.  First, install galaxycloudrunner into your Galaxy's virtual
-    environment.
+    environment via `pip install galaxycloudrunner`.
 2.  Add a job rule to Galaxy which will determine the Pulsar node to
     route to.
-3.  Configure your job\_conf.xml to use this rule.
+3.  Configure your `job_conf.xml` to use this rule.
 4.  Launch as many Pulsar nodes as you need through
     [CloudLaunch](https://launch.usegalaxy.org/).
-5.  Submit your jobs as usual.
+5.  Submit jobs as usual.
 
 For detailed instructions, see:
 [https://galaxycloudrunner.readthedocs.io/](https://galaxycloudrunner.readthedocs.io/)
+
+## Developer installation
+
+Clone the source code repository and install the library with the dev
+dependencies.
+
+```
+git clone https://github.com/CloudVE/galaxycloudrunner.git
+cd galaxycloudrunner
+pip install --upgrade .[dev]
+```
+
+To build the HTML docs locally, run the following commands. The built site will
+be available in `docs/_build/html`.
+
+```
+cd docs
+make html
+```
 
 ## Contributing
 Community contributions for any part of the project are welcome. If you have
