@@ -13,10 +13,15 @@ Additional Configuration and Limitations
    than 0 to avoid repeatedly querying a remote server during each job
    submission.
 
-2. Upload tool
+2. Incompatible tools
 
-   Jobs for the upload tool (tool id `upload1`) cannot be sent to remote Pulsar
-   nodes.
+   Due to the nature of how Galaxy collects metadata on datasets, certain tools
+   are not compatible with job execution in the bursting mode. Some of these
+   issues will be resolved once Pulsar is upgraded to collect metadata itself
+   but for the time being the following is an (incomplete) list of tools and
+   tool classes that will not operate when executed via the GalaxyCloudRunner:
+   upload tool, data managers, tools that use metadata input, and tools that
+   use custom data discovery.
 
 3. Auto-scaling
 
