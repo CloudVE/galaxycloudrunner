@@ -2,7 +2,7 @@ Adding new Pulsar nodes
 -----------------------
 
 1. To launch a new Pulsar node, go to `https://launch.usegalaxy.org/`_
-2. Select the ``Pulsar Standalone`` appliance.
+2. Select the ``Galaxy Cloud Bursting`` appliance.
 
 .. image:: ../images/pulsar_select_appliance.png
 

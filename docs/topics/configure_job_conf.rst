@@ -1,4 +1,4 @@
-Job configuration for Galaxy v19.01 or higher
+Job configuration for Galaxy 19.01 or higher
 ==============================================
 
 Simple configuration
@@ -130,7 +130,7 @@ a configuration like the following.
    :linenos:
    :emphasize-lines: 20-23
 
-Galaxy versions prior to v19.01 do not support chaining dynamic rules, and
+Galaxy versions prior to 19.01 do not support chaining dynamic rules, and
 therefore, we have provided a single monolithic rule that can handle both
 scenarios.
 
