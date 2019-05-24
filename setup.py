@@ -4,8 +4,6 @@ import re
 
 import setuptools
 
-# Cannot use "from galaxycloudrunner import get_version" because that would
-# try to import the six package which may not be installed yet.
 reg = re.compile(r"__version__\s*=\s*(.+)")
 with open(os.path.join("galaxycloudrunner", "__init__.py")) as f:
     for line in f:
@@ -38,7 +36,7 @@ setuptools.setup(
         'dev': (['sphinx', 'sphinx_rtd_theme'] + REQS_FULL)
     },
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 3 - Alpha",
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Intended Audience :: Developers",
