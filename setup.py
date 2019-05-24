@@ -18,7 +18,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 REQS_FULL = [
-    "cachetools==3.0.0",
+    "cachetools==3.1.0",
     "cloudlaunch-cli==0.2.1"
 ]
 
