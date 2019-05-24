@@ -68,3 +68,33 @@ well documented and all methods have docstrings. We are largely adhering to the
 lines, 4-space indentation (spaces instead of tabs), explicit, one-per-line
 imports among others. Please keep the style consistent with the rest of the
 project.
+
+
+## Release process
+1. Update any dependencies in `setup.py` and commit the changes.
+2. Increment the library version number in `galaxycloudrunner/__init__.py` as
+   per [semver rules](https://semver.org/).
+3. Add release notes to `CHANGELOG.rst`, adding the most recent commit hash to
+   the changelog, and make a commit. List of commits can be obtained using
+   `git shortlog <last release hash>..HEAD`
+4. Test the release with PyPI staging server, as described in
+   https://hynek.me/articles/sharing-your-labor-of-love-pypi-quick-and-dirty/
+   You will need to `pip install -U wheel twine` for this step.
+5. Release to PyPI
+   ```
+   # Remove stale files or wheel might package them
+   rm -r build dist
+   python setup.py sdist bdist_wheel
+   twine upload -r pypi dist/galaxycloudrunner-*
+   ```
+6. Tag release and make a GitHub release. Alternatively, push the current
+   commits and make a release directly on GitHub to include the release
+   changelog in the tag body.
+   ```
+   git tag -a v0.3.0 -m "Release 0.3.0"
+   git push
+   git push --tags
+   ```
+7. Increment version number in `galaxycloudrunner/__init__.py` to
+   `<current-version>+dev` to indicate the development cycle; commit, and push
+   the changes.
