@@ -1,8 +1,10 @@
-Adding new Pulsar nodes
+Adding new worker nodes
 -----------------------
 
-1. To launch a new Pulsar node, go to `https://launch.usegalaxy.org/`_
-2. Select the ``Galaxy Cloud Bursting`` appliance.
+1. To launch a new Pulsar node, go to
+   `https://launch.usegalaxy.org/catalog/appliance/pulsar-standalone`_. We are
+   using the ``Galaxy Cloud Bursting`` appliance, which is a leveraging the
+   `Pulsar application`_ as a remote Galaxy job runner.
 
 .. image:: ../images/pulsar_select_appliance.png
 
@@ -23,4 +25,5 @@ Adding new Pulsar nodes
 6. Simply launching the node is enough, the GalaxyCloudRunner will now pick up
    your new nodes by querying the CloudLaunch API.
 
-.. _https://launch.usegalaxy.org/: https://launch.usegalaxy.org/
+.. _https://launch.usegalaxy.org/catalog/appliance/pulsar-standalone: https://launch.usegalaxy.org/
+.. _Pulsar application: https://pulsar.readthedocs.io/en/latest/

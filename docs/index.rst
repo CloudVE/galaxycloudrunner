@@ -18,12 +18,11 @@ available by querying the `CloudLaunch`_ API.
 
 Getting Started
 ---------------
-Getting started with the GalaxyCloudRunner is a simple process.
+Getting started with the GalaxyCloudRunner is a simple process:
 
-1. First, install ``galaxycloudrunner`` library into your Galaxy's virtual environment
-2. Configure Galaxy to use GalaxyCloudRunner job destination rules
-3. Launch as many worker nodes as you need through `CloudLaunch`_
-4. Submit jobs as usual
+1. Configure Galaxy to use GalaxyCloudRunner job destination rules
+2. Launch as many worker nodes as you need through `CloudLaunch`_
+3. Submit jobs as usual
 
 
 .. toctree::
@@ -45,4 +44,4 @@ Indices and tables
 
 .. _Galaxy application: https://galaxyproject.org/
 .. _Pulsar: https://pulsar.readthedocs.io/en/latest/
-.. _CloudLaunch: https://launch.usegalaxy.org/
+.. _CloudLaunch: https://launch.usegalaxy.org/catalog/appliance/pulsar-standalone

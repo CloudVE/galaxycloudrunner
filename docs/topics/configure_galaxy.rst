@@ -2,16 +2,8 @@ Configuring Galaxy
 ==================
 
 Configuring Galaxy 19.01 or higher
------------------------------------
-1. First install the GalaxyCloudRunner into your Galaxy virtual environment.
-
-.. code-block:: shell
-
-    cd <galaxy_home>
-    source .venv/bin/activate
-    pip install galaxycloudrunner
-
-2. Edit your `job_conf.xml` in the `<galaxy_home>/config` folder and add the
+----------------------------------
+1. Edit your `job_conf.xml` in the `<galaxy_home>/config` folder and add the
    highlighted sections to it.
 
    You will need to add your own value for the ``cloudlaunch_api_token`` to the
@@ -22,12 +14,11 @@ Configuring Galaxy 19.01 or higher
    :linenos:
    :emphasize-lines: 7,9-22
 
-3. Launch as many Pulsar nodes as you need through `CloudLaunch`_. The job rule
+2. Launch as many worker nodes as you need through `CloudLaunch`_. The job rule
    will periodically query CloudLaunch, discover these new nodes, and route jobs
-   to them.
-   Instructions on how to launch new Pulsar nodes are below.
+   to them. Instructions on how to launch new Pulsar nodes are below.
 
-4. Submit your jobs as usual.
+3. Submit jobs as usual.
 
 
 .. _galaxy_configuration_legacy:
@@ -40,7 +31,7 @@ Configuring Galaxy versions lower than 19.01
 
     cd <galaxy_home>
     source .venv/bin/activate
-    pip install galaxycloudrunner
+    pip install --upgrade galaxycloudrunner
 
 2. For prior prior to Galaxy 19.01, you will need to add a GalaxyCloudRunner
    job rule to your Galaxy configuration by pasting the following file contents
@@ -54,7 +45,7 @@ Configuring Galaxy versions lower than 19.01
    :language: python
    :linenos:
 
-3. Edit your job_conf.xml in the `<galaxy_home>/config` folder and add the
+3. Edit your `job_conf.xml` in the `<galaxy_home>/config` folder and add the
    highlighted sections to it.
 
    You will need to add your own ``cloudlaunch_api_token`` to the file.
@@ -68,15 +59,12 @@ Configuring Galaxy versions lower than 19.01
    :linenos:
    :emphasize-lines: 7,9-19
 
-4. Launch as many Pulsar nodes as you need through `CloudLaunch`_. The job rule
+4. Launch as many worker nodes as you need through `CloudLaunch`_. The job rule
    will periodically query CloudLaunch, discover these new nodes, and route jobs
-   to them.
-   Instructions on how to launch new Pulsar nodes are below.
+   to them. Instructions on how to launch new worker nodes are following.
 
 
 5. Submit your jobs as usual.
-
-.. _CloudLaunch: https://launch.usegalaxy.org/
 
 Reducing data transfers
 -----------------------
@@ -121,5 +109,5 @@ documentation`_.
       source_directory: /galaxy/server/sacCer2/bwa_mem_index/sacCer2/
       destination_directory: /cvmfs/data.galaxyproject.org/managed/bwa_mem_index/sacCer2/
 
-
+.. _CloudLaunch: https://launch.usegalaxy.org/catalog/appliance/pulsar-standalone
 .. _Pulsar documentation: https://pulsar.readthedocs.io/en/latest/galaxy_conf.html#data-staging
