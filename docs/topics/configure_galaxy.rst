@@ -9,6 +9,12 @@ Configuring Galaxy 19.01 or higher
    You will need to add your own value for the ``cloudlaunch_api_token`` to the
    file. Instructions on how to obtain your CloudLaunch API key are given below.
 
+.. note::
+   If you do not have the Galaxy configuration file (i.e., `config/galaxy.yml`),
+   either create it (by making a copy of the `.sample` version of the file) or
+   explicitly install the `galaxycloudrunner` library into Galaxy's virtual
+   env, as per docs below (section on installing GCR for Galaxy <v19.01).
+
 .. literalinclude:: ../samples/job_conf.xml.basic
    :language: xml
    :linenos:
